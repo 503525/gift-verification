@@ -1,6 +1,27 @@
 // Waits for the DOM Tree to be fully loaded before continuing.
 window.addEventListener('DOMContentLoaded', init);
 
+function init() {
+    
+
+    const x = setInterval(updateCounter(), 1000);
+}
+
+function updateCounter()
+{
+    const countDownDate = new Date("April 4, 2026 00:00:00").getTime();
+    const currentDate = new Date().getTime();
+
+    const distance = countDownDate - currentDate;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("counter").innerHTML = days + ":" + hours + ":" + minutes + ":" + seconds;
+}
+
 /* Set the date we're counting down to
 var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
 
